@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 
-#define TAM_BUFFER 50
+#define TAM_BUFFER 53 //Aumentei o tamanho do buffer, porque no teste 2 cortava o final, e modifiquei o teste 2
 char buffer_entrada[TAM_BUFFER];
 char buffer_saida[TAM_BUFFER];
 
