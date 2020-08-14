@@ -2,6 +2,8 @@
  *
  * Dica: veja em referencia/cifrador.c o codigo-fonte do programa
  * que gerou as cifras que voce precisa decifrar!
+ * Augusto Lourenço de Faria      RA: 194447
+ * Como o código do cifrador a main apenas pega a string e imprime, logo a função de codificar faz tudo, decidi apenas trocar ela para uma que 	* decifra, no caso reverse_crypto
  */
 
 #include <stdio.h>
