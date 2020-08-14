@@ -10,10 +10,38 @@
 char buffer_entrada[TAM_BUFFER];
 char buffer_saida[TAM_BUFFER];
 
+const char senha[] = "SENHASECRETA";
+
+int reverse_crypto (char x, char y){
+	char i;
+	
+	//Caso seja algum char menor que 65 na tabela ASCII, assim volta o caracter enviado, exemplos: '!', '?', ':', esse modo não cobre alguns sinais maiores que 65 na tabela
+	if(x < 65)
+		return x;
+	//Pega a diferença do char mandado para o começo 'A' assim sabendo o tamanho do shift
+	x = x - 'A';	
+	//Inicia o for no char 'A'=65, e vai andando pelo alfabeto
+	//Pego o char que estou andando pelo alfabeto e somo a y que é o char da minha key, se o resto da divisão for igual ao shift, encontrei meu char o qual foi cryptado
+	for(i=65; (i+y)%26 != x; i++);
+	
+	return i; 
+}
+
 int main() {
+  int j=0;
+  int i=0;
+
   /* Leitura da entrada */
   fgets(buffer_entrada, TAM_BUFFER, stdin);
 
+
+  for (i=0; (i<TAM_BUFFER) && (buffer_entrada[i]!='\0') && (buffer_entrada[i]!='\n'); i++) {
+
+    buffer_saida[i] = reverse_crypto(buffer_entrada[i], senha[j]);
+    j++;
+    if (senha[j]=='\0') j=0;
+  }
+  buffer_saida[i]='\0';
 
 
   /* Escrever saida na tela */
